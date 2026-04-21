@@ -5,6 +5,7 @@
 ![Plotly](https://img.shields.io/badge/Plotly-Interactive-3D4DB7?style=for-the-badge&logo=plotly)
 ![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas)
 ![Status](https://img.shields.io/badge/Status-Active-success?style=for-the-badge)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit)](https://salesflow-analytics-gbkngse7myyzfhq5fjns9b.streamlit.app)
 
 > Dashboard professionnel d'analyse automatique des ventes — développé dans le cadre du Projet de Fin d'Année 2026.
 
@@ -68,7 +69,7 @@ SalesFlow Analytics est une application web interactive qui permet d'analyser au
 
 1. Cloner le projet
 
-        git clone https://github.com/TON_USERNAME/salesflow-analytics.git
+        git clone https://github.com/maram3-bit/salesflow-analytics.git
         cd salesflow-analytics
 
 2. Créer l'environnement virtuel
@@ -105,8 +106,8 @@ SalesFlow Analytics est une application web interactive qui permet d'analyser au
 
 ## 👨‍💻 Auteur
 
-**[Ton Nom]**
-Étudiant en [Ta Filière] — [Ton École]
+**Khorchani Maram**
+Étudiante en Data Science — FST
 Projet de Fin d'Année 2026
 
 ---
