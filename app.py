@@ -106,14 +106,33 @@ def detecter_anomalies(df):
     return anomalies
 
 def charger_donnees(filepath):
-    analyzer = SalesAnalyzer(filepath)
-    analyzer.run_all()
-    df = analyzer.df
-    q1 = df['CA_Net'].quantile(0.33)
-    q3 = df['CA_Net'].quantile(0.66)
-    df['Categorie'] = df['CA_Net'].apply(
-        lambda x: classifier_produit(x, q1, q3))
-    return df, analyzer.get_summary()
+    try:
+        
+        analyzer = SalesAnalyzer(filepath)
+        
+        
+        if analyzer.df.empty:
+            st.warning("⚠️ Le fichier CSV est vide.")
+            return analyzer.df, {
+                'ca_total': 0, 'tva_totale': 0, 'top_id': "N/A", 
+                'top_ca': 0, 'nb_produits': 0
+            }
+            
+        
+        analyzer.run_all()
+        df = analyzer.df
+        
+        
+        q1 = df['CA_Net'].quantile(0.33) if not df.empty else 0
+        q3 = df['CA_Net'].quantile(0.66) if not df.empty else 0
+        
+        df['Categorie'] = df['CA_Net'].apply(lambda x: classifier_produit(x, q1, q3))
+        return df, analyzer.get_summary()
+
+    except Exception as e:
+        # Cas 3 : Le fichier est totalement illisible (ex: un JPG renommé en CSV)
+        st.error(f"❌ Erreur de lecture : Le fichier est mal formé ou vide.")
+        return pd.DataFrame(), None
 
 
 # ── Sidebar ──────────────────────────────────────────────────
